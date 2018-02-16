@@ -8,6 +8,8 @@ use inflector::Inflector;
 use curl::easy::Easy;
 use std::process;
 
+
+
 fn main() {
 	let args: Vec<String> = env::args().collect();
 	if args.len() < 2 {
@@ -21,15 +23,16 @@ fn main() {
     easy.url(&url).unwrap();
     easy.perform().unwrap();
     if easy.response_code().unwrap() != 200 {
-    	// check in Global
+    	// check without replacements and title_case
     	name = orig_name;
-    	if name == "MacOS" || name == "macos" {
-    		name = "macOS".to_string();
-    	}
     	url = format!("https://raw.githubusercontent.com/github/gitignore/master/{}.gitignore", name);
 	    easy.url(&url).unwrap();
 	    easy.perform().unwrap();
 	    if easy.response_code().unwrap() != 200 {
+	    	// check in Global
+	    	if name == "MacOS" || name == "macos" {
+	    		name = "macOS".to_string();
+	    	}
 	    	url = format!("https://raw.githubusercontent.com/github/gitignore/master/Global/{}.gitignore", name);
 	    	easy.url(&url).unwrap();
 	    }
