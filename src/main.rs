@@ -38,6 +38,7 @@ fn main() {
             easy.url(&url).unwrap();
         }
     }
+    println!("");
     easy.write_function(|data| {
         Ok(stdout().write(data).unwrap())
     }).unwrap();
