@@ -11,7 +11,7 @@ use std::process;
 fn main() {
 	let args: Vec<String> = env::args().collect();
 	if args.len() < 2 {
-		println!("Usage: ./ignore [python|rust|go|AppEngine|... any .gitignore on github.com/github/gitignore]");
+		println!("Usage: ./ignore [python|rust|go|any .gitignore on github.com/github/gitignore] > .gitignore");
 		process::exit(1);
 	}
 	let orig_name = args[1].to_string();
