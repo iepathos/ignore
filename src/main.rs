@@ -225,46 +225,48 @@ pub fn get_gitignore(orig_name: String) -> String {
     return html
 }
 
+const NOT_FOUND: &'static str = "404: Not Found\n";
+
 
 #[test]
 fn get_gitignore_returns_404_on_gobblygoop() {
     let resp = get_gitignore("gobblygoop".to_string());
-    assert_eq!(resp, "404: Not Found\n");
+    assert_eq!(resp, NOT_FOUND);
     let resp = get_gitignore("thisdefinitelyshouldnotexist".to_string());
-    assert_eq!(resp, "404: Not Found\n");
+    assert_eq!(resp, NOT_FOUND);
 }
 
 
 #[test]
 fn get_gitignore_finds_macos() {
     let resp = get_gitignore("macos".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("macOS".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("macOs".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
 }
 
 
 #[test]
 fn get_gitignore_finds_rust() {
     let resp = get_gitignore("rust".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("Rust".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
 }
 
 
 #[test]
 fn get_gitignore_find_mixed_case_examples() {
     let resp = get_gitignore("AppEngine".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("appEngine".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("appengine".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
     let resp = get_gitignore("EpISeRvEr".to_string());
-    assert_ne!(resp, "404: Not Found\n");
+    assert_ne!(resp, NOT_FOUND);
 }
 
 
