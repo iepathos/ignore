@@ -232,6 +232,7 @@ fn get_gitignore_returns_404_on_gobblygoop() {
     assert_eq!(resp, "404: Not Found\n");
 }
 
+
 #[test]
 fn get_gitignore_finds_macos() {
     let resp = get_gitignore("macos".to_string());
@@ -242,11 +243,13 @@ fn get_gitignore_finds_macos() {
     assert_ne!(resp, "404: Not Found\n");
 }
 
+
 #[test]
 fn get_gitignore_finds_rust() {
     let resp = get_gitignore("rust".to_string());
     assert_ne!(resp, "404: Not Found\n");
 }
+
 
 #[test]
 fn get_gitignore_find_mixed_case_examples() {
@@ -261,17 +264,11 @@ fn get_gitignore_find_mixed_case_examples() {
 }
 
 
-
 fn main() {
-
-    
-
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         println!("Usage: ./ignore [python|rust|go|any .gitignore on github.com/github/gitignore] > .gitignore");
         process::exit(1);
     }
-
-    println!("\n{}", get_gitignore(args[1].to_string()));
-    
+    println!("\n{}", get_gitignore(args[1].to_string()));   
 }
