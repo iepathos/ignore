@@ -248,6 +248,8 @@ fn get_gitignore_finds_macos() {
 fn get_gitignore_finds_rust() {
     let resp = get_gitignore("rust".to_string());
     assert_ne!(resp, "404: Not Found\n");
+    let resp = get_gitignore("Rust".to_string());
+    assert_ne!(resp, "404: Not Found\n");
 }
 
 
