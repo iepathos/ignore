@@ -5,4 +5,3 @@ authors = ["Glen Baker <glen@headspin.io>"]
 
 [dependencies]
 curl = "0.4.11"
-Inflector = "*"
