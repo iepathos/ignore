@@ -230,6 +230,8 @@ pub fn get_gitignore(orig_name: String) -> String {
 fn get_gitignore_returns_404_on_gobblygoop() {
     let resp = get_gitignore("gobblygoop".to_string());
     assert_eq!(resp, "404: Not Found\n");
+    let resp = get_gitignore("thisdefinitelyshouldnotexist".to_string());
+    assert_eq!(resp, "404: Not Found\n");
 }
 
 
