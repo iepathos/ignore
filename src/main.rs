@@ -225,6 +225,8 @@ pub fn get_gitignore(orig_name: String) -> String {
     return html
 }
 
+
+#[cfg(test)]
 const NOT_FOUND: &'static str = "404: Not Found\n";
 
 
