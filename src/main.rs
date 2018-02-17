@@ -269,7 +269,7 @@ fn get_gitignore_find_mixed_case_examples() {
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
-        println!("Usage: ignore [python|rust|go|any .gitignore on github.com/github/gitignore] > .gitignore");
+        println!("Usage:\n\tignore [python|rust|go|any .gitignore on github.com/github/gitignore] > .gitignore");
         process::exit(1);
     }
     println!("\n{}", get_gitignore(args[1].to_string()));   
